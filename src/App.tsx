@@ -19,6 +19,13 @@ const App = () => {
       </main>
 
       <style>{`
+        /* htmlとbodyにも背景色を塗ることで、隙間が黒くなるのを防ぎます */
+        html, body {
+          margin: 0;
+          padding: 0;
+          background-color: #f4f1ea; 
+        }
+
         .app-container {
           display: flex;
           min-height: 100vh;
@@ -28,7 +35,6 @@ const App = () => {
         .main-content {
           flex: 1;
           padding: 40px 20px;
-          overflow-y: auto;
         }
 
         .content-wrapper {
@@ -36,10 +42,9 @@ const App = () => {
           margin: 0 auto;
         }
 
-        /* スマホ対応：画面幅 768px 以下の時 */
         @media (max-width: 768px) {
           .app-container {
-            flex-direction: column; /* 横並びから縦並びに */
+            flex-direction: column;
           }
           .main-content {
             padding: 20px 15px;

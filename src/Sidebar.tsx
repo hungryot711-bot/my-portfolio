@@ -5,10 +5,10 @@ interface Props {
 
 const Sidebar = ({ activeMenu, onMenuClick }: Props) => {
   const menus = [
-    { id: 'vision', label: '自己プロデュース', icon: '💡' },
-    { id: 'achievements', label: '実績', icon: '🏆' },
-    { id: 'projects', label: '開発実績', icon: '💻' },
-    { id: 'profile', label: '経歴・資格', icon: '🆔' },
+    { id: 'vision', label: '自己プロデュース' },
+    { id: 'achievements', label: '実績' },
+    { id: 'projects', label: '開発実績' },
+    { id: 'profile', label: '経歴・資格' },
   ];
 
   return (
@@ -32,7 +32,6 @@ const Sidebar = ({ activeMenu, onMenuClick }: Props) => {
             onClick={() => onMenuClick(menu.id)} 
             className={`nav-button ${activeMenu === menu.id ? 'active' : ''}`}
           >
-            <span className="icon">{menu.icon}</span> 
             <span className="label">{menu.label}</span>
           </button>
         ))}
@@ -55,32 +54,57 @@ const Sidebar = ({ activeMenu, onMenuClick }: Props) => {
         .name { font-size: 1.2rem; font-weight: bold; color: #2c3e50; }
         .title { font-size: 0.75rem; color: #7f8c8d; margin-top: 5px; }
 
-        .nav-button {
-          width: 100%; padding: 12px 15px; margin-bottom: 8px;
-          background: transparent; border: none; border-radius: 8px;
-          text-align: left; cursor: pointer; display: flex; align-items: center;
-          gap: 10px; font-size: 0.9rem; transition: 0.3s; color: #4a4a4a;
+        .nav-menu {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
         }
-        .nav-button.active { background: #a3b18a; color: #fff; font-weight: bold; }
 
-        /* スマホ対応 */
+        .nav-button {
+          width: 100%; 
+          padding: 14px 15px;
+          background: #fff; /* 通常時は白背景 */
+          border: 2px solid #dcd7c9; /* 全てのボタンに枠線 */
+          border-radius: 8px;
+          text-align: center; 
+          cursor: pointer;
+          font-size: 0.95rem; 
+          transition: 0.3s; 
+          color: #4a4a4a;
+          font-weight: bold;
+        }
+
+        /* 選択されているボタンのスタイル */
+        .nav-button.active { 
+          background: #a3b18a; 
+          border-color: #a3b18a;
+          color: #fff; 
+        }
+
         @media (max-width: 768px) {
           .sidebar {
             width: 100%;
             padding: 20px 15px;
             border-right: none;
             border-bottom: 1px solid #dcd7c9;
+            box-sizing: border-box;
           }
           .profile-section {
-            display: flex; align-items: center; text-align: left; margin-bottom: 20px;
+            display: flex; 
+            align-items: center; 
+            text-align: left; 
+            margin-bottom: 20px;
           }
-          .profile-img { width: 60px; height: 60px; margin: 0 15px 0 0; }
+          .profile-img { width: 50px; height: 50px; margin: 0 15px 0 0; }
           .nav-menu {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 8px;
           }
-          .nav-button { margin-bottom: 0; padding: 10px; font-size: 0.8rem; }
+          .nav-button { 
+            padding: 12px 5px; 
+            font-size: 0.85rem; 
+          }
         }
       `}</style>
     </aside>
