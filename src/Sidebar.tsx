@@ -23,7 +23,7 @@ const Sidebar = ({ activeMenu, onMenuClick }: Props) => {
       <div style={{ textAlign: 'center', marginBottom: '40px' }}>
         {/* プロフィール画像 */}
         <img 
-          src="/my-profile.jpg" 
+          src={`${import.meta.env.BASE_URL}my-profile.jpg`}
           alt="丹生谷 拳志郎"
           style={{ 
             width: '100px', 
