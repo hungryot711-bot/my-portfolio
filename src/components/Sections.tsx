@@ -1,4 +1,4 @@
-import AchievementCard from './AchievementCard';
+
 
 // 共通のアースカラー設定
 const colors = {
