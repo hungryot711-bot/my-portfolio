@@ -121,52 +121,123 @@ export const Projects = () => {
     {
       title: "SakuPass（サクパス）",
       url: "https://sakupass.com/info.html",
+      image: "sakupass-thumb.jpg",
       tags: ["JavaScript", "Firebase", "Stripe連携"],
-      description: "「合格を、もっと身近に。」をコンセプトとした、医療系国家試験対策のサブスクリプション型学習プラットフォーム。Firestoreを活用したリアルタイムな学習進捗管理に加え、Stripe APIによる決済システムを自律的に実装。現場のニーズを形にした本格的なWebサービスです。"
+      desc: "「合格を、もっと身近に。」をコンセプトとした、医療系国家試験対策のサブスクリプション型学習プラットフォーム。Firestoreを活用したリアルタイムな学習進捗管理に加え、Stripe APIによる決済システムを自律的に実装。現場のニーズを形にした本格的なWebサービスです。"
     },
     {
       title: "オンライン・オープンキャンパス",
       url: "https://hungryot711-bot.github.io/opencampus/",
+      image: "opencampus.jpg",
       tags: ["UI/UXデザイン", "広報ツール"],
-      description: "時間と場所の制約を超えて、学校の魅力を体験できるデジタル広報ツール。受験生の「知りたい」に直感的に応えるインターフェースを構築しています。"
+      desc: "時間と場所の制約を超えて、学校の魅力を体験できるデジタル広報ツール。受験生の「知りたい」に直感的に応えるインターフェースを構築しています。"
     },
     {
       title: "河原クエスト",
       url: "https://hungryot711-bot.github.io/kawaharaquest/",
+      image: "kawahara-quest.jpg",
       tags: ["ゲーミフィケーション", "JavaScript"],
-      description: "「学びを、冒険に変える。」ボードゲーム形式の学習アプリ。正解してコインを集める達成感を演出し、教育現場での学習継続率を飛躍的に向上させました。"
+      desc: "「学びを、冒険に変える。」ボードゲーム形式の学習アプリ。正解してコインを集める達成感を演出し、教育現場での学習継続率を飛躍的に向上させました。"
     },
     {
       title: "授業内容確認サバイバル：LAST WAR",
       url: "https://hungryot711-bot.github.io/lastwar/",
+      image: "survive.jpg",
       tags: ["エデュテインメント", "リアルタイム性"],
-      description: "サバイバル要素を取り入れた知識定達確認ツール。正解し続けなければ生き残れない緊張感で、学生の集中力を最後まで維持させます。"
+      desc: "サバイバル要素を取り入れた知識定達確認ツール。正解し続けなければ生き残れない緊張感で、学生の集中力を最後まで維持させます。"
     },
     {
       title: "感染症タイピングパズル",
       url: "https://hungryot711-bot.github.io/puzzle/",
+      image: "puzzle.jpg",
       tags: ["記憶定着アルゴリズム", "パズル"],
-      description: "暗記の苦痛をパズルの快感に。文字をつなげて疾患名を完成させるプロセスを通じ、視覚と操作で感染症知識を定着させます。"
+      desc: "暗記の苦痛をパズルの快感に。文字をつなげて疾患名を完成させるプロセスを通じ、視覚と操作で感染症知識を定着させます。"
     }
   ];
 
   return (
-    <section style={{ textAlign: 'left' }}>
+    <section>
       <h2 style={{ color: colors.primary, borderBottom: `2px solid ${colors.accent}`, display: 'inline-block', marginBottom: '30px' }}>技術・開発実績</h2>
-      {apps.map((app, index) => (
-        <div key={index} style={{ background: '#fff', padding: '25px', borderRadius: '12px', border: `1px solid ${colors.border}`, marginBottom: '25px', boxShadow: '0 4px 6px rgba(0,0,0,0.02)' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '10px' }}>
-            <strong style={{ fontSize: '1.2rem', color: colors.primary }}>{app.title}</strong>
-            <a href={app.url} target="_blank" rel="noopener noreferrer" style={{ background: colors.primary, color: '#fff', padding: '5px 15px', borderRadius: '20px', fontSize: '0.8rem', textDecoration: 'none', fontWeight: 'bold' }}>サイトを見る ↗</a>
+      <div className="projects-grid">
+        {apps.map((app, i) => (
+          <div key={i} className="project-card">
+            <div className="project-image-container">
+               <img 
+                src={`${import.meta.env.BASE_URL}${app.image}`} 
+                alt={app.title} 
+                className="project-img"
+                onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300x180?text=No+Image'; }} 
+              />
+            </div>
+            <div className="project-info">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+                <strong style={{ color: colors.primary, fontSize: '1.1rem' }}>{app.title}</strong>
+                <a href={app.url} target="_blank" rel="noopener noreferrer" className="project-link">サイト ↗</a>
+              </div>
+              <div style={{ display: 'flex', gap: '5px', marginBottom: '10px', flexWrap: 'wrap' }}>
+                {app.tags.map(tag => (
+                  <span key={tag} style={{ fontSize: '0.65rem', background: '#eee', padding: '2px 6px', borderRadius: '4px' }}>{tag}</span>
+                ))}
+              </div>
+              {/* 変数名を app.description から app.desc に統一しました */}
+              <p style={{ fontSize: '0.85rem', color: colors.text, lineHeight: '1.5', margin: 0 }}>{app.desc}</p>
+            </div>
           </div>
-          <div style={{ margin: '12px 0' }}>
-            {app.tags.map(tag => (
-              <span key={tag} style={{ background: '#eef2f7', color: '#555', padding: '3px 12px', borderRadius: '15px', fontSize: '0.75rem', marginRight: '6px' }}>{tag}</span>
-            ))}
-          </div>
-          <p style={{ fontSize: '0.95rem', color: colors.text, lineHeight: '1.7', margin: 0 }}>{app.description}</p>
-        </div>
-      ))}
+        ))}
+      </div>
+
+      <style>{`
+        .projects-grid {
+          display: flex;
+          flex-direction: column;
+          gap: 25px;
+        }
+        .project-card {
+          display: flex;
+          background: #fff;
+          border-radius: 12px;
+          border: 1px solid ${colors.border};
+          overflow: hidden;
+          transition: transform 0.2s;
+        }
+        .project-card:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .project-image-container {
+          width: 240px;
+          min-height: 150px;
+          background: #eee;
+          flex-shrink: 0;
+        }
+        .project-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .project-info {
+          padding: 20px;
+          flex: 1;
+        }
+        .project-link {
+          color: ${colors.highlight};
+          font-size: 0.8rem;
+          font-weight: bold;
+          text-decoration: none;
+          padding: 4px 8px;
+          border: 1px solid ${colors.highlight};
+          border-radius: 4px;
+        }
+        @media (max-width: 600px) {
+          .project-card {
+            flex-direction: column;
+          }
+          .project-image-container {
+            width: 100%;
+            height: 160px;
+          }
+        }
+      `}</style>
     </section>
   );
 };
@@ -198,6 +269,7 @@ export const Profile = () => (
             <li>TypeScript (Type-safe coding)</li>
             <li>JavaScript (ES6+)</li>
             <li>HTML5 / CSS3</li>
+            <li>Python (Data analysis / AI integration)</li>
           </ul>
         </div>
 
@@ -209,6 +281,7 @@ export const Profile = () => (
             <li>Google Apps Script (GAS)</li>
             <li>Firebase (Auth / Firestore)</li>
             <li>Stripe API (決済実装)</li>
+            <li>Azure (Web App Deployment)</li>
           </ul>
         </div>
 
