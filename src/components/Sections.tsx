@@ -122,8 +122,15 @@ export const Projects = () => {
       title: "SakuPass（サクパス）",
       url: "https://sakupass.com/info.html",
       image: "sakupass-thumb.jpg",
-      tags: ["JavaScript", "Firebase", "Stripe連携"],
+      tags: ["JavaScript", "Firebase", "Node.js(Stripe連携)"],
       desc: "「合格を、もっと身近に。」をコンセプトとした、医療系国家試験対策のサブスクリプション型学習プラットフォーム。Firestoreを活用したリアルタイムな学習進捗管理に加え、Stripe APIによる決済システムを自律的に実装。現場のニーズを形にした本格的なWebサービスです。"
+    },
+     {
+      title: "インテーク面接シミュレーター",
+      url: "https://sato-interview-system-e2hnaefgaxd7hhdx.southeastasia-01.azurewebsites.net/",
+      image: "aisimu.jpg",
+      tags: ["python", "MicrosoftAzure"],
+      desc: "Google AI Studioと連携した、AIを活用した本格的な面接シミュレーターです。"
     },
     {
       title: "オンライン・オープンキャンパス",
@@ -136,21 +143,21 @@ export const Projects = () => {
       title: "河原クエスト",
       url: "https://hungryot711-bot.github.io/kawaharaquest/",
       image: "kawahara-quest.jpg",
-      tags: ["ゲーミフィケーション", "JavaScript"],
+      tags: ["Firebase", "JavaScript"],
       desc: "「学びを、冒険に変える。」ボードゲーム形式の学習アプリ。正解してコインを集める達成感を演出し、教育現場での学習継続率を飛躍的に向上させました。"
     },
     {
       title: "授業内容確認サバイバル：LAST WAR",
       url: "https://hungryot711-bot.github.io/lastwar/",
       image: "survive.jpg",
-      tags: ["エデュテインメント", "リアルタイム性"],
+      tags: ["Javascript", "アジャイル開発"],
       desc: "サバイバル要素を取り入れた知識定達確認ツール。正解し続けなければ生き残れない緊張感で、学生の集中力を最後まで維持させます。"
     },
     {
       title: "感染症タイピングパズル",
       url: "https://hungryot711-bot.github.io/puzzle/",
       image: "puzzle.jpg",
-      tags: ["記憶定着アルゴリズム", "パズル"],
+      tags: ["Javascript", "アジャイル開発"],
       desc: "暗記の苦痛をパズルの快感に。文字をつなげて疾患名を完成させるプロセスを通じ、視覚と操作で感染症知識を定着させます。"
     }
   ];
