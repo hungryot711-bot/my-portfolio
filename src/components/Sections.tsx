@@ -130,7 +130,7 @@ export const Projects = () => {
       url: "https://sato-interview-system-e2hnaefgaxd7hhdx.southeastasia-01.azurewebsites.net/",
       image: "aisimu.jpg",
       tags: ["python", "MicrosoftAzure"],
-      desc: "Google AI Studioと連携した、AIを活用した本格的な面接シミュレーターです。"
+      desc: "Google AI Studioと連携した、AIを活用した本格的な面接シミュレーターです。患者さんとのやりとりをテキストベースで体験できます。（無料プランのAIを採用しているため、時間帯によっては繋がりにくいことがございます。）"
     },
     {
       title: "オンライン・オープンキャンパス",
@@ -187,7 +187,7 @@ export const Projects = () => {
                 ))}
               </div>
               {/* 変数名を app.description から app.desc に統一しました */}
-              <p style={{ fontSize: '0.85rem', color: colors.text, lineHeight: '1.5', margin: 0 }}>{app.desc}</p>
+              <p style={{ fontSize: '0.85rem', color: colors.text, lineHeight: '1.5', margin: 0, textAlign: 'left' }}>{app.desc}</p>
             </div>
           </div>
         ))}
